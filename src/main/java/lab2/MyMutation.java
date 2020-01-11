@@ -10,9 +10,15 @@ public class MyMutation implements EvolutionaryOperator<double[]> {
         // initial population
         // need to change individuals, but not their number!
 
-        // your implementation:
-
-        //result population
+        for (double[] solution: population) {
+            double alpha = random.nextDouble();
+            if (alpha > 0.5) {
+                double sigma = random.nextDouble();
+                if (sigma < 0.5) {
+                    solution[random.nextInt(solution.length)] += random.nextGaussian();
+                }
+            }
+        }
         return population;
     }
 }
